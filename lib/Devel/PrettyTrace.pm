@@ -36,7 +36,7 @@ sub bt{
     my $i = 1;	#skip own call
     
     while (
-        $i < $deepness
+        $i < $deepness + 1
             &&
         (my @info = get_caller_info($i + 1))	#+1 as we introduce another call frame
     ){
