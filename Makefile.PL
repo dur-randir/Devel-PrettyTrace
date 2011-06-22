@@ -12,6 +12,7 @@ license 'bsd';
 test_requires 'Test::More';
 requires 'Devel::StackTrace';
 requires 'Exporter';
+requires 'List::MoreUtils';
 
 system 'pod2text lib/Devel/PrettyTrace.pod > README';
 
