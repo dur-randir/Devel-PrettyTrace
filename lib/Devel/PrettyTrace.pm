@@ -61,6 +61,7 @@ sub format_call{
             $result .= "require $info->[6]";
             
         }else{
+            $info->[6] =~ s/\n;$/;/;
             $result .= "eval '".trim_to_length($info->[6], $Evalen)."'";
         }
         
