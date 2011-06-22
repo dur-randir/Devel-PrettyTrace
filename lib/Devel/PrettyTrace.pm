@@ -13,6 +13,17 @@ our @EXPORT = qw(bt);
 our $Indent = '  ';
 our $Evalen = 40;
 our $Deeplimit = 5;
+our %Opts = (
+    colored		=> 1,
+    class 		=> {
+        internals       => 1,
+        show_methods    => 'none',
+        parents         => 0,
+        linear_isa      => 0,
+        expand          => 1,
+    },
+    max_depth	=> 2,
+);
 
 sub bt{
     my ($deepness) = @_;
@@ -76,7 +87,7 @@ sub format_call{
 }
 
 sub format_args{
-    my $result = p @DB::args;
+    my $result = p(@DB::args, %Opts);
     
     #result is always non-empty array, so transform [\n a\n b\n] => \n\t\t a \n\t\t b \n\t
     $result =~ s/^.*?\n/\n/;
