@@ -31,7 +31,7 @@ sub bt{
     $deepness = $Deeplimit if !defined $deepness;
     $deepness = 999 if $deepness <= 0;
 
-    local @DB::args;
+    #local @DB::args;
     my $ret = '';
     my $i = 1;	#skip own call
     
