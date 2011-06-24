@@ -13,6 +13,7 @@ our @EXPORT = qw(bt);
 our $Indent = '  ';
 our $Evalen = 40;
 our $Deeplimit = 5;
+our $Skiplevels = 0;
 our %Opts = (
     colored		=> 1,
     class 		=> {
@@ -26,17 +27,12 @@ our %Opts = (
 );
 
 sub bt{
-    my ($deepness) = @_;
-    
-    $deepness = $Deeplimit if !defined $deepness;
-    $deepness = 999 if $deepness <= 0;
-
     #local @DB::args;
     my $ret = '';
-    my $i = 1;	#skip own call
+    my $i = $Skiplevels + 1;	#skip own call
     
     while (
-        $i < $deepness + 1
+        ($Deeplimit <= 0 || $i < $Deeplimit + 1)
             &&
         (my @info = get_caller_info($i + 1))	#+1 as we introduce another call frame
     ){
