@@ -26,7 +26,7 @@ our %Opts = (
     max_depth	=> 2,
 );
 
-sub bt{
+sub bt() {
     #local @DB::args;
     my $ret = '';
     my $i = $Skiplevels + 1;	#skip own call
