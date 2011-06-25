@@ -5,7 +5,7 @@ use strict;
 
 use parent qw(Exporter);
 use Data::Printer;
-use List::MoreUtils qw(all);
+use List::MoreUtils qw(all any);
 
 our $VERSION = '0.01';
 our @EXPORT = qw(bt);
@@ -14,6 +14,8 @@ our $Indent = '  ';
 our $Evalen = 40;
 our $Deeplimit = 5;
 our $Skiplevels = 0;
+
+our %IgnorePkg;
 our %Opts = (
     colored		=> 1,
     class 		=> {
@@ -30,20 +32,34 @@ sub bt() {
     #local @DB::args;
     my $ret = '';
     my $i = $Skiplevels + 1;	#skip own call
+    my $filter = get_ignore_filter();
     
     while (
         ($Deeplimit <= 0 || $i < $Deeplimit + 1)
             &&
         (my @info = get_caller_info($i + 1))	#+1 as we introduce another call frame
     ){
-        $ret .= format_call(\@info);
         $i++;
+        next if $filter->($info[3]);
+    
+        $ret .= format_call(\@info);
     }
     
     if (defined wantarray){
         return $ret;
     }else{
         print STDERR $ret;
+    }
+}
+
+sub get_ignore_filter{
+    my @filters = map { qr/^\Q$_\E/ } keys %IgnorePkg;
+    
+    return sub {
+        my $test_pkg = shift;
+        
+        return 1 if any { $test_pkg =~ $_ } @filters;
+        return 0;
     }
 }
 
