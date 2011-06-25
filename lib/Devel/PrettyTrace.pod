@@ -7,15 +7,53 @@ Devel::PrettyTrace - prints stack traces with arguments expanded into readable f
     use Devel::PrettyTrace;
 	
 	sub foo{
+		bar();
+	}
+
+	sub bar{
 		bt;
 	}
 
+	foo(1, "b");
+
+	#and you get
+	
+	main::bar() called at foo.pl line 4
+	main::foo(
+    	[0] 1,
+		[1] "b"
+	) called at foo.pl line 10
+
 =head1 DESCRIPTION
 
-This module allows you to acquire detailed stack strace of perl functions call. It exports a single function - C<bt>.
-Depending on a call context, it either prints call stack to STDERR (void context), or returns it as a string (non-void context).
+This module allows you to see detailed and pretty formatted stack straces of perl functions call. It exports a single function - C<bt>.
+In void context, it sends it's output to STDERR. In scalar context, it returns you collected data as string.
 
-Internally, it uses L<Data::Printer> to render function arguments. You may set additional output format by setting C<%Devel::PrettyTrace::Opts>.
+=head1 CONFIGURATION
+
+C<$Indent>
+
+This string is appended to each line of output. Defaults to '  ' (two spaces).
+
+C<$Evalen>
+
+How many symbols of a string eval to print. Defaults to 40.
+
+C<$Deeplimit>
+
+How many call frames to go up. Defaults to 0 (unlimited).
+
+C<$Skiplevels>
+
+How many calls up of the current frame to start printing. Defaults to 0 (do not skip anything).
+
+C<%IgnorePkg>
+
+Functions in a packages that are hash keys of C<%IgnorePkg> are not shown in the stack trace output.
+
+C<%Opts>
+
+Options for L<Data::Printer>, that determine how to render arguments. If you need special formatting, do it here.
 
 =head1 AUTHOR
 
