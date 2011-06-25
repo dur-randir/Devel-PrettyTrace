@@ -14,3 +14,7 @@ MANIFEST
 META.yml
 README
 t/01_use.t
+t/02_colors.t
+t/03_traces.t
+t/04_begin.t
+t/inc/Foo.pm
