@@ -10,8 +10,9 @@ author 'Sergey Aleynikov <sergey.aleynikov@gmail.com>';
 license 'bsd';
 
 test_requires 'Test::More';
-requires 'Devel::StackTrace';
+requires 'Data::Printer' => '0.19';
 requires 'Exporter';
+requires 'parent';
 requires 'List::MoreUtils';
 
 system 'pod2text lib/Devel/PrettyTrace.pod > README';

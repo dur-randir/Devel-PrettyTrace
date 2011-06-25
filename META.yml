@@ -19,9 +19,11 @@ no_index:
     - inc
     - t
 requires:
-  Devel::StackTrace: 0
   Exporter: 0
   perl: 5.6.0
+  Data::Printer: 0.19
+  parent: 0
+  List::MoreUtils: 0
 resources:
   license: http://opensource.org/licenses/bsd-license.php
 version: 0.01
