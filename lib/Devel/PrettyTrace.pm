@@ -12,7 +12,7 @@ our @EXPORT = qw(bt);
 
 our $Indent = '  ';
 our $Evalen = 40;
-our $Deeplimit = 5;
+our $Deeplimit = 0;
 our $Skiplevels = 0;
 
 our %IgnorePkg;
