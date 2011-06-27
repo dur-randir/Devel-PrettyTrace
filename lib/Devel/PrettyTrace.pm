@@ -26,6 +26,7 @@ our %Opts = (
         expand          => 1,
     },
     max_depth	=> 2,
+    indent		=> 2,
 );
 
 sub bt() {
