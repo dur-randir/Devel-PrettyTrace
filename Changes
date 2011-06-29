@@ -1,5 +1,8 @@
 Revision history for Perl extension Devel::PrettyTrace.
 
+0.04  Wed Jun 29 12:08:28 MSD 2011
+	- fix tests on 5.14 and later
+
 0.03  Mon Jun 27 23:39:54 MSD 2011
 	- work around different string eval numbers for tests
 

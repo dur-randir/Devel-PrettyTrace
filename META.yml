@@ -26,4 +26,4 @@ requires:
   List::MoreUtils: 0
 resources:
   license: http://opensource.org/licenses/bsd-license.php
-version: 0.01
+version: 0.04
