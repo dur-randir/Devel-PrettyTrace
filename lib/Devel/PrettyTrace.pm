@@ -5,7 +5,7 @@ use strict;
 
 use parent qw(Exporter);
 use Data::Printer;
-use List::MoreUtils qw(all any);
+use List::Util qw(all any);
 
 our $VERSION = '0.05';
 our @EXPORT = qw(bt);

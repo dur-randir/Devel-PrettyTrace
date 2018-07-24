@@ -13,7 +13,7 @@ WriteMakefile(
         'Data::Printer'     => '0.19',
         'Exporter'          => 0,
         'parent'            => 0,
-        'List::MoreUtils'   => 0,
+        'List::Util'        => '1.43',
     },
     META_MERGE      => {
         resources     => {
