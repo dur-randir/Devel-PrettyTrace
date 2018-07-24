@@ -27,6 +27,7 @@ our %Opts = (
     },
     max_depth	=> 2,
     indent		=> 2,
+    return_value => 'dump',
 );
 
 sub bt() {
