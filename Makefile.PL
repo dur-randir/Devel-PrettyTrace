@@ -23,6 +23,6 @@ WriteMakefile(
         dynamic_config  => 0,
     },
     ABSTRACT_FROM   => 'lib/Devel/PrettyTrace.pod',
-    LICENSE         => 'bsd',
+    LICENSE         => 'perl',
     MIN_PERL_VERSION=> 5.006,
 );
