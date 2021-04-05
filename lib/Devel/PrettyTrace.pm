@@ -18,6 +18,9 @@ our $Skiplevels = 0;
 our %IgnorePkg;
 our %Opts = (
     colored		=> 1,
+    colors		=> {
+	    brackets    => ''
+    },
     class 		=> {
         internals       => 1,
         show_methods    => 'none',
