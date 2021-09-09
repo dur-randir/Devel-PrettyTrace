@@ -7,7 +7,7 @@ use parent qw(Exporter);
 use Data::Printer;
 use List::Util qw(any);
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 our @EXPORT = qw(bt);
 
 our $Indent = '  ';
